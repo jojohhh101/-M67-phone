@@ -4119,3 +4119,24 @@ if (!state.webgl) {
 }
 
 window.setTimeout(() => document.body.classList.add("is-ready"), 600);
+
+// Scripted-capture hook (used by the video rig): deterministic camera & state
+// control for headless frame capture. Harmless in normal browsing.
+window.__m67 = {
+  setYaw(v) {
+    state.rotY = v;
+    state.velocityY = 0;
+    state.lastInteractionAt = performance.now();
+  },
+  setPitch(v) {
+    state.rotX = clamp(v, PITCH_MIN, PITCH_MAX);
+    state.velocityX = 0;
+    state.lastInteractionAt = performance.now();
+  },
+  setHolo(on) {
+    if (holoButton && holoOn !== on) holoButton.click();
+  },
+  setFinish(key) {
+    applyFinish(key, { persist: false, silent: true });
+  },
+};
