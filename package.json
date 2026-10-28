@@ -1,0 +1,15 @@
+{
+  "name": "monolith-m67",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MONOLITH M67 — a 3D concept phone showcase with an exploded anatomy chapter.",
+  "scripts": {
+    "start": "node server.mjs",
+    "build": "node build.mjs",
+    "check": "node build.mjs --check"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

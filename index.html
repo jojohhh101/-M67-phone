@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#e9eae4">
+  <title>MONOLITH M67 — 背面，终于平了</title>
+  <meta name="description" content="MONOLITH M67 概念手机：6.7 英寸无开孔全面屏，32MP 屏下前摄，三枚镜头与背板完全齐平。三枚实体按键、USB-C 3.2 与三种未来配色。滚动页面，镜头拉近，六层结构沿同一条轴展开。">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111412'/%3E%3Cpath d='M18 32h28' stroke='%23e9eae4' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="MONOLITH 首页">
+      <span class="wordmark-mark" aria-hidden="true"></span>
+      <span class="wordmark-type">MONOLITH</span>
+      <span class="wordmark-model">M67</span>
+    </a>
+
+    <nav class="site-nav" aria-label="主导航">
+      <a href="#anatomy">拆解</a>
+      <a href="#design">结构</a>
+      <a href="#display">屏幕</a>
+      <a href="#specs">参数</a>
+    </nav>
+
+    <div class="header-meta">
+      <span class="header-status"><i aria-hidden="true"></i>2026 首批</span>
+      <button class="header-link" type="button" data-reserve>
+        预约
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-ground" aria-hidden="true"></div>
+
+      <div class="stage" id="stage">
+        <div class="orbit" aria-hidden="true">
+          <span class="orbit-ring orbit-ring--outer"></span>
+          <span class="orbit-ring orbit-ring--inner"></span>
+          <span class="orbit-cross orbit-cross--x"></span>
+          <span class="orbit-cross orbit-cross--y"></span>
+          <svg class="hud-ring" viewBox="0 0 200 200">
+            <g id="hud-ring-rotor">
+              <circle class="hud-ring-circle hud-ring-circle--ticks" cx="100" cy="100" r="96"></circle>
+              <circle class="hud-ring-circle hud-ring-circle--fine" cx="100" cy="100" r="89"></circle>
+            </g>
+          </svg>
+          <span class="hud-chip hud-chip--yaw"><b id="hud-yaw">000°</b><i>YAW</i></span>
+          <span class="hud-chip hud-chip--spin"><b id="hud-spin">0.0</b><i>DEG/S</i></span>
+          <span class="hud-chip hud-chip--shell"><b id="hud-shell">OBSIDIAN</b><i>SHELL</i></span>
+        </div>
+        <div class="phone-aura" aria-hidden="true"></div>
+        <div class="phone-shadow" aria-hidden="true"></div>
+
+        <div class="model" id="model" tabindex="0" role="application"
+             aria-label="M67 三维手机模型。拖动旋转，使用左右方向键旋转，数字键 1、2、3、4 切换正面、背面、侧面与底部。">
+          <canvas id="phone-canvas" aria-hidden="true"></canvas>
+          <div class="webgl-fallback" id="webgl-fallback" hidden>
+            <div class="fallback-phone" aria-hidden="true"></div>
+            <p>3D 视图未能加载。你仍可浏览下方的结构与参数。</p>
+          </div>
+          <div class="boot-scan" aria-hidden="true"></div>
+        </div>
+
+        <span class="finish-glint" aria-hidden="true"></span>
+
+        <svg class="hud-leader" id="hud-leader" aria-hidden="true">
+          <path id="leader-path" d=""></path>
+          <circle id="leader-dot" cx="-40" cy="-40" r="3.5"></circle>
+        </svg>
+
+        <aside class="hud" id="hud" aria-hidden="true">
+          <p class="hud-kicker" id="hud-kicker">REAR OPTICS / FLUSH</p>
+          <p class="hud-value"><span id="hud-value">0.00</span><span class="hud-unit" id="hud-unit">mm</span></p>
+          <p class="hud-label" id="hud-label">镜组与背板完全平齐</p>
+        </aside>
+
+        <aside class="io-panel" aria-hidden="true">
+          <p class="io-kicker">BOTTOM EDGE / I/O</p>
+          <svg class="io-drawing" viewBox="0 0 280 112">
+            <defs>
+              <linearGradient id="io-rail" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#f0f2ed"/>
+                <stop offset=".22" stop-color="#adb3ae"/>
+                <stop offset=".48" stop-color="#555d59"/>
+                <stop offset=".7" stop-color="#171d1c"/>
+                <stop offset="1" stop-color="#050807"/>
+              </linearGradient>
+              <linearGradient id="io-port" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#7d8b85"/>
+                <stop offset=".2" stop-color="#d7dfd9"/>
+                <stop offset=".5" stop-color="#57635f"/>
+                <stop offset=".8" stop-color="#c7d2cc"/>
+                <stop offset="1" stop-color="#737f7a"/>
+              </linearGradient>
+            </defs>
+            <rect x="18" y="32" width="244" height="42" rx="21" fill="url(#io-rail)" stroke="rgba(255,255,255,.25)" stroke-width="1"/>
+            <rect x="24" y="37" width="232" height="7" rx="3.5" fill="rgba(255,255,255,.16)"/>
+            <g fill="#010202">
+              <circle cx="50" cy="54" r="2.2"/><circle cx="60" cy="54" r="2.2"/><circle cx="70" cy="54" r="2.2"/><circle cx="80" cy="54" r="2.2"/><circle cx="90" cy="54" r="2.2"/><circle cx="100" cy="54" r="2.2"/>
+              <circle cx="180" cy="54" r="2.2"/><circle cx="190" cy="54" r="2.2"/><circle cx="200" cy="54" r="2.2"/><circle cx="210" cy="54" r="2.2"/><circle cx="220" cy="54" r="2.2"/><circle cx="230" cy="54" r="2.2"/>
+            </g>
+            <rect x="114" y="43" width="52" height="19" rx="9.5" fill="#020304" stroke="url(#io-port)" stroke-width="1.6"/>
+            <rect x="118" y="47" width="44" height="11" rx="5.5" fill="#07131f"/>
+            <rect x="128" y="50" width="24" height="4" rx="2" fill="#b8c8c2"/>
+            <circle cx="30" cy="53" r="4.4" fill="none" stroke="#89928c" stroke-width="1"/>
+            <circle cx="250" cy="53" r="4.4" fill="none" stroke="#89928c" stroke-width="1"/>
+            <g stroke="rgba(43,69,255,.6)" stroke-width=".75" fill="none">
+              <path d="M92 22V9h96v13"/>
+              <path d="M140 9V4"/>
+            </g>
+            <text x="140" y="99" text-anchor="middle" fill="rgba(33,39,35,.66)" font-family="Source Code Pro, monospace" font-size="8.5" letter-spacing="2.4">USB-C 3.2 GEN 2</text>
+            <text x="140" y="110" text-anchor="middle" fill="rgba(33,39,35,.36)" font-family="Source Code Pro, monospace" font-size="6.5" letter-spacing="2">10 Gbps / 3 BUTTONS / MIC</text>
+          </svg>
+          <p class="io-meta"><span>USB-C</span><span>10 Gbps</span><span>3 Keys</span></p>
+        </aside>
+
+        <p class="stage-note" aria-hidden="true">
+          <span>M67</span>
+          <span>表面研究 · 2026</span>
+        </p>
+
+        <div class="stage-controls">
+          <span class="drag-hint" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><path d="M4 10h12M7 7l-3 3 3 3M13 7l3 3-3 3"/></svg>
+            拖动旋转
+          </span>
+          <div class="finish-picker" role="group" aria-label="机身颜色">
+            <span class="finish-label">FINISH</span>
+            <span class="finish-options">
+              <button class="finish-option" type="button" data-finish="obsidian" aria-label="曜黑" title="曜黑 / OBSIDIAN" aria-pressed="true">
+                <span class="finish-swatch" style="--swatch: #22272a"></span>
+              </button>
+              <button class="finish-option" type="button" data-finish="lunar" aria-label="月银" title="月银 / LUNAR" aria-pressed="false">
+                <span class="finish-swatch" style="--swatch: #d8d4c8"></span>
+              </button>
+              <button class="finish-option" type="button" data-finish="ion" aria-label="电蓝" title="电蓝 / ION" aria-pressed="false">
+                <span class="finish-swatch" style="--swatch: #24426f"></span>
+              </button>
+            </span>
+            <button class="holo-toggle" type="button" data-holo aria-pressed="false" title="全息投影 / HOLOGRAM">
+              <span class="holo-dot" aria-hidden="true"></span>全息
+            </button>
+            <span class="finish-current" id="finish-current">曜黑</span>
+          </div>
+          <div class="view-switch" role="group" aria-label="切换视角">
+            <button type="button" data-view="front" aria-pressed="false">正面</button>
+            <button type="button" data-view="rear" aria-pressed="true">背面</button>
+            <button type="button" data-view="side" aria-pressed="false">侧面</button>
+            <button type="button" data-view="bottom" aria-pressed="false">底部</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>M67 / 6.7″ 全面屏旗舰</p>
+        <h1 id="hero-title"><span id="hero-line-a">背面，</span><br><span id="hero-line-b">终于<span class="flat-word">平</span>了</span><span class="stop">。</span></h1>
+        <p class="lede">三枚镜头与背板齐平，凸起 <strong>0.00 mm</strong>。6.7 英寸无开孔全面屏，32MP 屏下前摄，收进 7.6 mm 的一体机身。</p>
+        <div class="hero-actions">
+          <button class="button button--solid" type="button" data-reserve>
+            预约 M67
+            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h11M9.5 4.5 14 9l-4.5 4.5"/></svg>
+          </button>
+          <a class="button button--text" href="#anatomy">
+            看拆解
+            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 3v11M4.5 9.5 9 14l4.5-4.5"/></svg>
+          </a>
+        </div>
+        <p class="hero-details">
+          <span>3 枚实体按键</span>
+          <span>USB-C 3.2</span>
+          <span>32MP 屏下前摄</span>
+        </p>
+      </div>
+
+      <div class="hero-specs" aria-label="M67 关键规格">
+        <div class="hero-spec">
+          <span class="spec-value"><span class="spec-num" data-count-from="0" data-count-to="6.7" data-decimals="1">6.7</span><span class="spec-unit">″</span></span>
+          <span class="spec-label">屏下前摄全面屏</span>
+        </div>
+        <div class="hero-spec">
+          <span class="spec-value"><span class="spec-num" data-count-from="3.2" data-count-to="0" data-decimals="2">0.00</span><span class="spec-unit">mm</span></span>
+          <span class="spec-label">摄像头凸起</span>
+        </div>
+        <div class="hero-spec">
+          <span class="spec-value"><span class="spec-num" data-count-from="0" data-count-to="7.6" data-decimals="1">7.6</span><span class="spec-unit">mm</span></span>
+          <span class="spec-label">一体机身厚度</span>
+        </div>
+        <div class="hero-spec">
+          <span class="spec-value"><span class="spec-num" data-count-from="0" data-count-to="168" data-decimals="0">168</span><span class="spec-unit">g</span></span>
+          <span class="spec-label">微晶玻璃机身</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="anatomy" id="anatomy" aria-labelledby="anatomy-title" aria-describedby="anatomy-desc">
+      <div class="anatomy-pin">
+        <div class="anatomy-ground" aria-hidden="true">
+          <span class="anatomy-orbit"><span class="anatomy-orbit--inner"></span></span>
+          <span class="anatomy-cross"></span>
+        </div>
+
+        <div class="anatomy-stage" id="anatomy-stage">
+          <canvas id="anatomy-canvas" aria-hidden="true"></canvas>
+
+          <svg class="anatomy-axis" id="anatomy-axis" aria-hidden="true">
+            <line id="anatomy-axis-line" x1="0" y1="0" x2="0" y2="0"></line>
+            <circle id="anatomy-axis-start" cx="0" cy="0" r="3.2"></circle>
+            <circle id="anatomy-axis-end" cx="0" cy="0" r="3.2"></circle>
+          </svg>
+
+          <svg class="callout-lines" id="callout-lines" aria-hidden="true"></svg>
+
+          <div class="anatomy-callouts" id="anatomy-callouts" aria-hidden="true">
+            <svg id="callout-dots"></svg>
+            <div class="callout-labels" id="callout-labels"></div>
+          </div>
+
+
+          <div class="anatomy-fallback" id="anatomy-fallback" hidden>
+            <div class="fallback-stack" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <p>3D 拆解视图未能加载。你仍可阅读下方的六层结构。</p>
+          </div>
+        </div>
+
+        <div class="anatomy-head">
+          <p class="section-index"><span class="index-dot" aria-hidden="true"></span>02 / 解构</p>
+          <h2 id="anatomy-title">完整，<br><span>然后散开。</span></h2>
+          <p class="anatomy-lede" id="anatomy-desc">从远处看，它是一台完整的 M67。继续向下，镜头靠近，六层结构沿同一条轴依次退开。</p>
+
+          <div class="anatomy-progress" id="anatomy-progress" role="progressbar" aria-label="解构进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="anatomy-progress-top">
+              <span id="anatomy-phase">整机 / ASSEMBLED</span>
+              <span class="anatomy-percent"><span id="anatomy-percent">000</span><em>%</em></span>
+            </div>
+            <div class="anatomy-track"><i id="anatomy-progress-bar"></i></div>
+            <div class="anatomy-progress-foot"><span>ONE AXIS</span><span>6 LAYERS</span></div>
+          </div>
+          <p class="anatomy-mobile-hint">向下滚动 · 靠近机身</p>
+        </div>
+
+        <p class="anatomy-meta" aria-hidden="true">EXPLODED STUDY / M67</p>
+        <p class="anatomy-cue" id="anatomy-cue"><span aria-hidden="true"></span>向下滚动 · 靠近机身</p>
+
+        <ol class="anatomy-legend" aria-label="M67 六层结构">
+          <li><span class="legend-num">01</span><span class="legend-name">屏幕总成</span><span class="legend-meta">6.7″ · 屏下前摄</span></li>
+          <li><span class="legend-num">02</span><span class="legend-name">电池</span><span class="legend-meta">5,200 mAh · L 形电芯</span></li>
+          <li><span class="legend-num">03</span><span class="legend-name">主板</span><span class="legend-meta">X2 · 3 nm · 双层堆叠</span></li>
+          <li><span class="legend-num">04</span><span class="legend-name">影像模组</span><span class="legend-meta">三摄齐平</span></li>
+          <li><span class="legend-num">05</span><span class="legend-name">无线充电板</span><span class="legend-meta">线圈 · 磁环 · 天线</span></li>
+          <li><span class="legend-num">06</span><span class="legend-name">一体后壳</span><span class="legend-meta">钛中框 + 微晶玻璃</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="structure" id="design" aria-labelledby="structure-title">
+      <div class="section-top">
+        <p class="section-index"><span class="index-dot" aria-hidden="true"></span>03 / 结构</p>
+        <p class="section-meta">SECTION A–A′ · 1:2</p>
+      </div>
+
+      <div class="structure-intro">
+        <h2 class="reveal" id="structure-title">平，是<br><span>设计出来的。</span></h2>
+        <div class="structure-copy reveal">
+          <p>摄像头没有消失。三枚镜头被完整收进 7.6 mm 机身，与微晶玻璃背板处在同一平面。从任何角度看，背面都是一条完整的线。</p>
+          <p class="muted">没有凸起，没有多余的金属台阶。只有一块玻璃，和它下面的精密。</p>
+        </div>
+      </div>
+
+      <figure class="blueprint reveal" aria-labelledby="blueprint-caption">
+        <svg viewBox="0 0 1400 560" role="img" aria-label="M67 侧面剖面图：摄像头镜组完全收进 7.6 毫米机身，背面保持 0.00 毫米平直。">
+          <defs>
+            <pattern id="bp-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M40 0H0v40" fill="none" stroke="#111412" stroke-opacity=".075" stroke-width="1"/>
+            </pattern>
+            <pattern id="bp-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="8" stroke="#111412" stroke-opacity=".12" stroke-width="1"/>
+            </pattern>
+            <linearGradient id="bp-body" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f1f2ec"/>
+              <stop offset=".35" stop-color="#d9ded7"/>
+              <stop offset="1" stop-color="#c6cec7"/>
+            </linearGradient>
+            <linearGradient id="bp-screen" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#2b45ff" stop-opacity=".24"/>
+              <stop offset=".5" stop-color="#1a9a88" stop-opacity=".9"/>
+              <stop offset="1" stop-color="#2b45ff" stop-opacity=".24"/>
+            </linearGradient>
+            <clipPath id="bp-body-clip">
+              <rect x="160" y="250" width="1080" height="88" rx="44"/>
+            </clipPath>
+            <filter id="bp-glow" x="-80%" y="-200%" width="260%" height="500%">
+              <feGaussianBlur stdDeviation="7" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <rect width="1400" height="560" fill="url(#bp-grid)"/>
+
+          <g class="bp-dim" aria-hidden="true">
+            <line x1="160" y1="140" x2="1240" y2="140"/>
+            <line x1="160" y1="124" x2="160" y2="156"/>
+            <line x1="1240" y1="124" x2="1240" y2="156"/>
+            <text x="700" y="120" text-anchor="middle">161.2 mm</text>
+          </g>
+
+          <g class="bp-reveal">
+            <line class="bp-flat-line" x1="82" y1="250" x2="1326" y2="250" filter="url(#bp-glow)"/>
+            <text class="bp-zero" x="700" y="212" text-anchor="middle">0.00 mm</text>
+            <text class="bp-zero-sub" x="700" y="232" text-anchor="middle">BACK SURFACE / 完全平直</text>
+          </g>
+
+          <rect x="160" y="250" width="1080" height="88" rx="44" fill="url(#bp-body)" stroke="#5d6864" stroke-opacity=".8" stroke-width="1.2"/>
+          <rect x="160" y="250" width="1080" height="88" rx="44" fill="url(#bp-hatch)"/>
+
+          <g clip-path="url(#bp-body-clip)">
+            <rect x="242" y="274" width="560" height="49" rx="7" fill="#f4f5ef" stroke="#76837e" stroke-opacity=".85"/>
+            <line x1="382" y1="276" x2="382" y2="321" stroke="#aab3ad"/>
+            <line x1="522" y1="276" x2="522" y2="321" stroke="#aab3ad"/>
+            <line x1="662" y1="276" x2="662" y2="321" stroke="#aab3ad"/>
+            <text x="270" y="303" class="bp-micro">5,200 mAh</text>
+
+            <rect x="824" y="270" width="198" height="37" rx="4" fill="#f4f5ef" stroke="#76837e" stroke-opacity=".85"/>
+            <path d="M842 288h32m12 0h56m14 0h24M842 296h18m12 0h72" stroke="#7e8a85" stroke-opacity=".7"/>
+
+            <rect x="1046" y="252" width="112" height="72" rx="12" fill="#e7eae4" stroke="#65726e" stroke-width="1.3"/>
+            <g class="bp-lens" fill="none" stroke="#56625e" stroke-opacity=".8">
+              <path d="M1058 266q44-13 88 0"/>
+              <path d="M1058 277q44-13 88 0"/>
+              <path d="M1058 288q44-13 88 0"/>
+              <path d="M1058 299q44-13 88 0"/>
+            </g>
+            <rect x="1060" y="311" width="84" height="8" rx="2" fill="#cfd4cd" stroke="#65726e" stroke-opacity=".9"/>
+            <circle cx="1102" cy="288" r="3" fill="#2b45ff" opacity=".7"/>
+
+            <circle cx="1300" cy="294" r="19" fill="none" stroke="#73807b" stroke-opacity=".4"/>
+            <path d="M1148 338v-15m14 15v-21m14 21v-12" stroke="#7e8a85" stroke-opacity=".7"/>
+          </g>
+
+          <path d="M204 338H1198" fill="none" stroke="url(#bp-screen)" stroke-width="2"/>
+          <rect x="204" y="338" width="994" height="2" fill="url(#bp-screen)" opacity=".2"/>
+          <text class="bp-label" x="206" y="362">6.7″ DISPLAY / 无开孔</text>
+
+          <g class="bp-dim" aria-hidden="true">
+            <line x1="1302" y1="250" x2="1302" y2="338"/>
+            <line x1="1286" y1="250" x2="1318" y2="250"/>
+            <line x1="1286" y1="338" x2="1318" y2="338"/>
+            <text transform="translate(1334 304) rotate(90)" text-anchor="middle">7.6 mm</text>
+          </g>
+
+          <g class="bp-callout">
+            <circle cx="1102" cy="288" r="82" fill="none" stroke="#2d49ff" stroke-opacity=".32" stroke-dasharray="2 7"/>
+            <path d="M1168 338 1220 391h116" fill="none" stroke="#2d49ff" stroke-opacity=".55"/>
+            <circle cx="1168" cy="338" r="2.5" fill="#2d49ff"/>
+            <text class="bp-callout-title" x="1238" y="385">镜组 / 完全内嵌</text>
+            <text class="bp-micro" x="1238" y="404">3 LENSES · 3.2 mm DEPTH</text>
+          </g>
+
+          <text class="bp-label" x="164" y="428">MICROCRYSTALLINE GLASS</text>
+          <text class="bp-label bp-label--strong" x="164" y="452">一整块微晶玻璃背板</text>
+          <text class="bp-label" x="1010" y="452">FLUSH BY DESIGN</text>
+        </svg>
+        <figcaption id="blueprint-caption" class="blueprint-caption">
+          <span>剖面：M67 中轴</span>
+          <span>镜头模组 3.2 mm · 背板凸起 0.00 mm</span>
+        </figcaption>
+      </figure>
+
+      <ul class="structure-notes reveal" aria-label="结构要点">
+        <li><span>背板</span><strong>微晶玻璃 / 0.00 mm 平直</strong></li>
+        <li><span>镜组</span><strong>三摄全平 / 蓝宝石镜片</strong></li>
+        <li><span>中框</span><strong>5 级钛 / 7.6 mm 一体成型</strong></li>
+      </ul>
+    </section>
+
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>MONOLITH M67&nbsp;&nbsp;·&nbsp;&nbsp;0.00 mm 镜组齐平&nbsp;&nbsp;·&nbsp;&nbsp;32MP 屏下前摄&nbsp;&nbsp;·&nbsp;&nbsp;5,200 mAh 双电芯&nbsp;&nbsp;·&nbsp;&nbsp;钛中框 7.6 mm&nbsp;&nbsp;·&nbsp;&nbsp;双 nano-SIM&nbsp;&nbsp;·&nbsp;&nbsp;</span><span>MONOLITH M67&nbsp;&nbsp;·&nbsp;&nbsp;0.00 mm 镜组齐平&nbsp;&nbsp;·&nbsp;&nbsp;32MP 屏下前摄&nbsp;&nbsp;·&nbsp;&nbsp;5,200 mAh 双电芯&nbsp;&nbsp;·&nbsp;&nbsp;钛中框 7.6 mm&nbsp;&nbsp;·&nbsp;&nbsp;双 nano-SIM&nbsp;&nbsp;·&nbsp;&nbsp;</span>
+        </div>
+      </div>
+    <section class="display" id="display" aria-labelledby="display-title">
+      <div class="display-copy">
+        <p class="section-index section-index--light"><span class="index-dot" aria-hidden="true"></span>04 / 显示</p>
+        <h2 class="reveal" id="display-title">正面，<br><span>整面都是屏。</span></h2>
+        <p class="display-lede reveal">6.7 英寸 LTPO 全面屏，四边收至 1.5 mm。32MP 前摄完全藏进屏下，没有刘海、开孔或药丸。</p>
+
+        <dl class="display-specs reveal">
+          <div><dt>对角线</dt><dd>6.7<span>″</span></dd></div>
+          <div><dt>刷新率</dt><dd>1–120<span>Hz</span></dd></div>
+          <div><dt>分辨率</dt><dd>2800×1260</dd></div>
+          <div><dt>峰值亮度</dt><dd>2600<span>nits</span></dd></div>
+        </dl>
+        <p class="display-note reveal">32MP 屏下前摄 · 3 枚实体按键 · USB-C 3.2 Gen 2</p>
+      </div>
+
+      <div class="display-art reveal">
+        <div class="screen-halo" aria-hidden="true"></div>
+        <div class="screen-frame" role="img" aria-label="M67 6.7 英寸无开孔全面屏锁屏界面">
+          <canvas id="display-screen" width="720" height="1560" aria-hidden="true"></canvas>
+          <span class="screen-glare" aria-hidden="true"></span>
+        </div>
+        <div class="display-dimension" aria-hidden="true">
+          <span class="dimension-top">6.7″</span>
+          <span class="dimension-line"></span>
+          <span class="dimension-bottom">EDGE TO EDGE</span>
+        </div>
+        <p class="display-caption">屏下前摄 · 无开孔 · 1.5 mm 四边</p>
+      </div>
+    </section>
+
+    <section class="specs" id="specs" aria-labelledby="specs-title">
+      <div class="section-top">
+        <p class="section-index"><span class="index-dot" aria-hidden="true"></span>05 / 参数</p>
+        <p class="section-meta">M67 / TECHNICAL SHEET</p>
+      </div>
+
+      <div class="specs-layout">
+        <div class="specs-intro">
+          <h2 class="reveal" id="specs-title">把复杂，<br><span>收进 7.6 mm。</span></h2>
+          <p class="reveal">一块玻璃、一枚钛中框、三枚平齐镜头。M67 把该有的能力都留下，把不该出现的厚度与凸起拿走。</p>
+          <button class="button button--solid reveal" type="button" data-reserve>
+            预约 M67
+            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h11M9.5 4.5 14 9l-4.5 4.5"/></svg>
+          </button>
+        </div>
+
+        <div class="specs-table-wrap reveal">
+          <table>
+            <caption class="sr-only">MONOLITH M67 技术参数</caption>
+            <tbody>
+              <tr>
+                <th scope="row">显示屏</th>
+                <td>6.7″ LTPO AMOLED · 2800×1260 · 1–120 Hz · 2600 nits 峰值 · 32MP 屏下前摄</td>
+              </tr>
+              <tr>
+                <th scope="row">影像系统</th>
+                <td>50 MP 主摄 · 50 MP 超广角 · 64 MP 潜望长焦 · 三摄与背板齐平</td>
+              </tr>
+              <tr>
+                <th scope="row">机身</th>
+                <td>161.2 × 74.8 × 7.6 mm · 168 g · 5 级钛中框</td>
+              </tr>
+              <tr>
+                <th scope="row">材质与颜色</th>
+                <td>微晶玻璃背板 · 2.5D 玻璃边缘 · IP68 · 曜黑 / 月银 / 电蓝</td>
+              </tr>
+              <tr>
+                <th scope="row">接口与按键</th>
+                <td>USB-C 3.2 Gen 2（10 Gbps）· 双 nano-SIM（正反双面卡托，双卡双待）· 电源 ×1 / 音量 ×2 · 共 3 枚实体按键</td>
+              </tr>
+              <tr>
+                <th scope="row">平台</th>
+                <td>MONOLITH X2 · 3 nm · 16 GB 内存 · 最高 1 TB 存储</td>
+              </tr>
+              <tr>
+                <th scope="row">电池与充电</th>
+                <td>5,200 mAh · 80 W 有线 · 50 W 无线</td>
+              </tr>
+              <tr>
+                <th scope="row">连接</th>
+                <td>5G · Wi-Fi 7 · 蓝牙 5.4 · UWB · 卫星消息</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="specs-footnote">概念产品展示。部分配置为设计设定，非最终量产参数。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <a class="wordmark wordmark--footer" href="#top" aria-label="MONOLITH 首页">
+        <span class="wordmark-mark" aria-hidden="true"></span>
+        <span class="wordmark-type">MONOLITH</span>
+        <span class="wordmark-model">M67</span>
+      </a>
+      <p>背面，终于平了。</p>
+    </div>
+
+    <div class="footer-word" aria-hidden="true">M67</div>
+
+    <div class="footer-bottom">
+      <span>© 2026 MONOLITH · SHANGHAI</span>
+      <span>概念设计 / 非实际产品</span>
+      <a href="#top">回到顶部 ↑</a>
+    </div>
+  </footer>
+
+  <dialog class="reserve-dialog" id="reserve-dialog" aria-labelledby="reserve-title">
+    <div class="dialog-inner">
+      <button class="dialog-close" type="button" data-close-dialog aria-label="关闭预约窗口">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m5 5 10 10M15 5 5 15"/></svg>
+      </button>
+      <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span>M67 / 首批预约</p>
+      <h2 id="reserve-title">把平的背面，<br>拿在手里。</h2>
+      <p class="dialog-copy">留下邮箱，发布当日优先收到 M67 的体验邀请。</p>
+      <form id="reserve-form" novalidate>
+        <label for="reserve-email">邮箱</label>
+        <div class="field-row">
+          <input id="reserve-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <button class="button button--solid" type="submit">
+            登记
+            <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M3 9h11M9.5 4.5 14 9l-4.5 4.5"/></svg>
+          </button>
+        </div>
+        <p class="field-error" id="reserve-error" role="alert" hidden>请输入有效的邮箱地址。</p>
+      </form>
+      <p class="dialog-note">演示页面：提交仅在本机显示确认，不会发送邮件。</p>
+    </div>
+  </dialog>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three.module.js"
+      }
+    }
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
